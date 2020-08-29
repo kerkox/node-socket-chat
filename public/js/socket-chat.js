@@ -28,16 +28,20 @@ socket.on('disconnect', function () {
 
 
 // Enviar información
-socket.emit('enviarMensaje', {
-    usuario: 'Paul',
-    mensaje: 'Hola Mundo'
-}, function (resp) {
-    console.log('respuesta server: ', resp);
-});
+// socket.emit('enviarMensaje', {
+//     usuario: 'Paul',
+//     mensaje: 'Hola Mundo'
+// }, function (resp) {
+//     console.log('respuesta server: ', resp);
+// });
 
 // Escuchar información
-socket.on('enviarMensaje', function (mensaje) {
-
+socket.on('crearMensaje', function (mensaje) {
     console.log('Servidor:', mensaje);
-
 });
+
+// Escuchar cmabios de Usuarios
+// cuando un usuario entra o sale del chat
+socket.on('listaPersonas', function (personas) {
+    console.log(personas);
+})
